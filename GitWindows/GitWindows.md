@@ -1,6 +1,6 @@
 ### CARA INSTALL GIT DI WINDOWS
 1. Download git pada website resmi nya     git-scm.com kemudian unduh git sesuai dengan arsitektur komputer kita
-<img src="pict/1.png">
+https://github.com/mauyusup18/MagangBRI-2020/blob/master/GitWindows/pict/Pict/1.png
 2. Selanjutnya, klik 2x file installer git yang sudah diunduh
 <img src="pict/2.jpg">
 3. Maka akan muncul informasi lisensi git, klik next > untuk melanjutkan
