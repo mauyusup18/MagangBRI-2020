@@ -36,7 +36,8 @@ Setelah selesai installing git, buat folder baru github.com seperti dibawah, jik
 <img src="Pict/16.jpg">
 3.Buat folder baru pada document, lalu klik kiri pilih git bash
 <img src="Pict/17.jpg">
-4.lalu pastekan link yang tadi sudah dicopy kedalam git bash, lalu ketik kan [git login "link yg tadi di copy"]
+4.lalu pastekan link yang tadi sudah dicopy kedalam git bash, 
+lalu ketik kan [git login "link yg tadi di copy"]
 <img src="Pict/18.JPG">
 5.lihat di dalam folder yang sudah dibuat, akan ada, folder yang terdapat di github
 <img src="Pict/19.JPG">
@@ -44,9 +45,11 @@ Setelah selesai installing git, buat folder baru github.com seperti dibawah, jik
 <img src="Pict/20.JPG">
 7.Setelah melakukan edit file, selanjutnya yaitu melakukan penambahan file kedalam github
 <img src="Pict/21.JPG">
-8.Jika Anda cukup yakin untuk melakukan perubahan langsung di HEAD, Anda langsung gunakan perintah commit. Contohnya:
+8.Jika Anda cukup yakin untuk melakukan perubahan langsung di HEAD, 
+Anda langsung gunakan perintah commit. Contohnya:
 <img src="Pict/22.JPG">
-9.Setelah Anda melakukan commit perubahan (dan sudah yakin siap dikirim ke repository asli), Anda bisa menggunakan perintah push
+9.Setelah Anda melakukan commit perubahan (dan sudah yakin siap dikirim ke repository asli), 
+Anda bisa menggunakan perintah push
 <img src="Pict/23.JPG">
 10.Selanjutnya cek di github apakah sudah berhasil atau belum
 <img src="Pict/24.JPG">
