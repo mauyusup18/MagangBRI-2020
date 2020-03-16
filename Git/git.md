@@ -31,11 +31,11 @@
 ### MEMBUAT REPOSITORY BARU DI GITHUB
 1.Repositori (repository) dalam bahasa indonesia artinya gudang. Repositori merupakan istilah yang digunakan untuk direktori proyek yang menggunakan Git	
 Setelah selesai installing git, buat folder baru github.com seperti dibawah, jika sudah selesai klik create Repository
-<img src="Pict/15.JPG">
+<img src="Pict/15.jpg">
 2.Melakukan clone seperti digambar, lalu memindahkan hasil copy tadi ke github bash
-<img src="Pict/16.JPG">
+<img src="Pict/16.jpg">
 3.Buat folder baru pada document, lalu klik kiri pilih git bash
-<img src="Pict/17.JPG">
+<img src="Pict/17.jpg">
 4.lalu pastekan link yang tadi sudah dicopy kedalam git bash, lalu ketik kan [git login "link yg tadi di copy"]
 <img src="Pict/18.JPG">
 5.lihat di dalam folder yang sudah dibuat, akan ada, folder yang terdapat di github
