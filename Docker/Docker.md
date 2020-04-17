@@ -77,7 +77,66 @@ echo "<?php phpinfo(); ?>" > www/index.php
  #### 6. Cek pada browser localhost:9001
  <img src="pict/6.PNG">
  
+ 
+ ### D.Docker Compose
+Docker Compose adalah file untuk menjalankan container lebih dari satu.
+#### D.1 Basic Docker Compose
+#### 1.  Buat file dengan nama docker-compose.yml dengan isi berikut
+
     
+```version: '3.3'
+
+ services:
+ db:
+     image: mysql:5.7
+     volumes:
+         - dbdata:/var/lib/mysql
+     restart: always
+     environment:
+         MYSQL_ROOT_PASSWORD: somewordpress
+         MYSQL_DATABASE: wordpress
+         MYSQL_USER: wordpress
+         MYSQL_PASSWORD: wordpress
+
+ wordpress:
+     depends_on:
+         - db
+     image: wordpress:latest
+     ports:
+         - "8000:80"
+     restart: always
+     environment:
+         WORDPRESS_DB_HOST: db:3306
+         WORDPRESS_DB_USER: wordpress
+         WORDPRESS_DB_PASSWORD: wordpress
+ volumes:
+     dbdata:
+```
+
+#### 2. Jalankan docker compose dengan perintah
+
+    docker-compose up -d
+
+ #### D.2 Build dockerfile dengan docker compose
+#### 1. Buat file docker-compose.yml pada folder tempat Dockerfile yang   dibuat pada bagian sebelumnya dengan isi
+
+   ```
+version: '3.3'
+
+ services:
+     ubuntu-cloud:
+         build:
+             context: ./
+         ports:
+             - "9001:80"
+         volumes:
+             - ./www:/var/www/html
+```
+
+#### 2. Untuk menjalankan Docker Compose dan membuat Docker Image dengan perintah
+
+    docker-compose up -d --build
+	   
 
 	
 
