@@ -75,7 +75,7 @@ echo "<?php phpinfo(); ?>" > www/index.php
     docker run --name ubuntu-cloud -p 9001:80 -d ubuntu-komputasiawan-images
 
  #### 6. Cek pada browser localhost:9001
- <img src="pict/6.png">
+ <img src="pict/6.PNG">
  
     
 
