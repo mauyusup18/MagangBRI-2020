@@ -55,3 +55,9 @@ Jika perintah tersebut berhasil diaplikasikan, Anda perlu melakukan konfirmasi d
 #### Terakhir, akan muncul pilihan untuk memuat ulang tabel privilege untuk memastikan bahwa semua perubahan yang dibuat berfungsi. Tekan **Y** pada perintah ini untuk memuat ulang tabel privilege.
 <img src="pict/8.PNG">
 
+Setelah melakukan instalasi mariadb server langkah selanjutnya yaitu melakukan restart mariadb dengan command seperti dibawah :
+
+    sudo mysql -u root -p
+
+Kemudian ketikkan kata sandi yang Anda buat tadi untuk login pada mariadb ... jika berhasil login, tampilan nya akan seperti dibawah :
+<img src="pict/9.PNG">
