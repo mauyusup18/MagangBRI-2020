@@ -59,5 +59,5 @@ Setelah melakukan instalasi mariadb server langkah selanjutnya yaitu melakukan r
 
     sudo mysql -u root -p
 
-Kemudian ketikkan kata sandi yang Anda buat tadi untuk login pada mariadb ... jika berhasil login, tampilan nya akan seperti dibawah :
+Kemudian ketikkan kata sandi yang Anda buat tadi untuk login pada mariadb, jika berhasil login, tampilan nya seperti dibawah
 <img src="pict/9.PNG">
