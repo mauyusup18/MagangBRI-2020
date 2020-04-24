@@ -61,3 +61,64 @@ Setelah melakukan instalasi mariadb server langkah selanjutnya yaitu melakukan r
 
 Kemudian ketikkan kata sandi yang Anda buat tadi untuk login pada mariadb, jika berhasil login, tampilan nya seperti dibawah
 <img src="pict/9.PNG">
+
+## C.  Install PHP-FPM and Related Modules
+#### 1. untuk menginstall PHP-FPM dan module yang dibutuhkan, ikuti perintah dibawah
+
+    sudo apt install php-fpm php-common php-mbstring php-xmlrpc php-soap php-gd php-xml php-intl php-mysql php-cli php-zip php-curl`
+
+#### 2. Setelah menginstall php, lakukan cek versi dengan perintah dibawah
+
+    php -v
+
+tampilan nya akan seperti ini 
+<img src="pict/10.PNG">
+
+#### 3. Restart nginx
+selanjutnya, jalankan perintah di bawah ini untuk memulai kembali server HTTP Nginx agar pengaturan PHP  dapat diterapkan 
+
+    sudo systemctl restart nginx.service
+#### 4. Membuat file php 
+Untuk menguji pengaturan PHP dengan Nginx, buat file phpinfo.php di direktori root Nginx dengan menjalankan perintah di bawah ini
+
+    sudo nano /var/www/html/phpinfo.php
+
+Kemudian ketik konten di bawah ini dan simpan file tersebut.
+
+    <?php phpinfo( ); ?>
+ <img src="pict/11.PNG">   
+
+Setelah memasukkan teks di atas, tekan **CTRL + X**  kemudian **Y**, lalu tekan **ENTER**.
+
+#### 5. Melakukan konfigurasi situs nginx default
+Selanjutnya, jalankan perintah di bawah ini untuk membuka file konfigurasi situs Nginx default 
+
+    sudo nano /etc/nginx/sites-available/default
+
+Batalkan komentar pada blok PHP seperti yang ditunjukkan pada kode di bawah ini:
+
+    # pass PHP scripts to FastCGI server
+        #
+        location ~ \.php$ {
+                include snippets/fastcgi-php.conf;
+        #
+        #       # With php-fpm (or other unix sockets):
+                fastcgi_pass unix:/var/run/php/php7.2-fpm.sock;
+        #       # With php-cgi (or other tcp sockets):
+        #       fastcgi_pass 127.0.0.1:9000;
+        }
+
+contoh nya seperti dibawah
+<img src="pict/12.PNG">
+
+jika sudah di edit, lalu save file nya dan exit  **CTRL + X**  kemudian **Y**, lalu tekan **ENTER**.
+
+#### 8. Lakukan reload pada nginx
+
+    sudo systemctl reload nginx
+    
+
+#### 7. Test pada browser
+dengan mengetik http://localhost/phpinfo.php
+
+<img src="pict/13.PNG">
