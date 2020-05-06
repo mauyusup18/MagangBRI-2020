@@ -179,3 +179,88 @@ Setelah menambahkan host, silahkan lakukan pengujian, dengan mengetikan domain y
 <img src="pict/6.PNG">  
 <img src="pict/7.PNG">  
 
+## Setting Server Block Nginx 1 Domain Berbeda Port
+
+### 1. Membuat direktori root dokumen
+membuat direktori untuk  situs web dengan perintah sebagai berikut:
+
+    sudo mkdir -p /var/www/iniwebucup2.id/html
+### 2. Mengatur izin kepemilikian direktori
+
+    $ sudo chown -R $USER:$USER /var/www/iniwebucup2.id/html
+    $ sudo chmod -R 755 /var/www
+    
+## Buat Halaman untuk situs web
+
+membuat halaman contoh untuk setiap situs web yang sudah dibuat sehingga memiliki halaman yang dapat ditampilkan dengan perintah :
+
+    $ nano /var/www/iniwebucup2.id/html/index.html
+
+Rubah konten dasar yang menunjukan situs web apa yang sedang diakses
+
+
+    <html>
+        <head>
+            <title>Hallo</title>
+        </head>
+        <body>
+            <h1>ini API</h1>
+        </body>
+    </html>
+
+## Buat file server block untuk domain
+
+kita akan membuat file server block dengan cara menyalin dari konfigurasi server block iniwebucup.id yang sudah dibuat sebelumnya.
+
+    $ sudo cp /etc/nginx/sites-available/iniwebucup.id /etc/nginx/sites-available/iniwebucup2.id
+
+Kemudian buka file `/etc/nginx/sites-available/iniwebucup2.id` dengan text editor:
+
+    $ sudo nano /etc/nginx/sites-available/iniwebucup2.id
+
+Kemudian rubah file server block yang sudah dicopy tadi dari iniwebucup.id seperti dibawah
+
+    server {
+            listen 8080;
+            listen [::]:8080;
+    
+            root /var/www/iniwebucup2.id/html;
+            index index.html index.htm index.nginx-debian.html;
+    
+            server_name iniwebucup2.id www.iniwebucup2.id;
+    
+            location / {
+                    try_files $uri $uri/ =404;
+            }
+    }
+
+## Aktifkan Block Server dan Restart Nginx
+Setelah membuat konfigurasi server block situs web, langkah selanjutnya kita perlu mengaktifkan server block tersebut agar dapat diakses oleh pengunjung, dengan cara :
+
+    $ sudo ln -s /etc/nginx/sites-available/iniwebucup2.id /etc/nginx/sites-enabled/
+
+Selanjutnya  menguji untuk memastikan tidak ada kesalahan dalam konfigurasi tersebut.
+
+    $ sudo nginx -t
+<img src="pict/8.PNG">
+
+Jika tidak ada masalah, restart NGINX untuk menerapkan perubahan konfigurasi :
+
+    $ sudo systemctl restart nginx
+
+## Mengubah File Host untuk Pengujian
+Untuk melakukan perubahan pada file host, jalankan perintah dibawah ini:
+
+    $ sudo nano /etc/hosts
+
+tambahkan host seperti dibawah
+
+    127.0.0.1 iniwebucup2.id www.iniwebucup2.id
+<img src="pict/9.PNG">
+
+## Pengujian
+
+Lakukan pengujian dengan mengunjungi link iniwebucup.id:8080 jika berhasil tampilan nya seperti dibawah
+<img src="pict/10.PNG">
+
+
