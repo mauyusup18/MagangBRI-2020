@@ -241,3 +241,98 @@ http://iniwebucup.id
 
 
 <img src="pict/W4.PNG">
+
+## C. DEPLOY CODEIGNITER MENGGUNAKAN NGINX PADA UBUNTU 16.04
+
+### 1. Install PHP 7 Beserta Modulnya
+
+    sudo apt-get -y install php7.0
+    sudo sed -i 's/;cgi.fix_pathinfo=1/cgi.fix_pathinfo=0/;' /etc/php/7.0/fpm/php.ini
+    sudo systemctl restart php7.0-fpm
+### 2. Install Mysql
+
+    mysql_secure_installation
+Setelah melakukan install Mysql langkah selanjutnya yaitu membuat database
+
+    create database db;  
+    grant all on db.* to 'dbuser'@'localhost' identified by 'dbpass';  
+    flush privileges;  
+    exit;
+
+Selanjutnya melakukan configurasi pada leafpad /etc/php/7.2/fpm/pool.d/www.conf &>/dev/null
+lakukan perubahan pada [ env[HOSTNAME] = $HOSTNAME ] hilangkan ; pada HOSTNAME, PATH,TMP,TMPDIR,TEMP seperti pada gambar dibawah
+<img src="pict/C0.PNG">
+
+### 3.  Install Codeigniter
+Untuk melakukan install Codeigniter lakukan perintah seperti dibawah
+
+    wget https://github.com/bcit-ci/CodeIgniter/archive/3.1.5.zip  
+    unzip 3.1.5.zip
+    cp -r CodeIgniter-3.1.5/ /var/www/html/codeigniter
+    
+Setelah melakukan install Codeigniter, langkah selanjutnya mendaftarkan database yang sudah dibuat tadi pada database.php seperti dibawah
+
+    leafpad /var/www/html/codeigniter/application/config/database.php &>/dev/null
+<img src="pict/C2.PNG">
+
+Selanjutnya mendaftarkan domain pada CodeIgniter
+
+     leafpad /var/www/html/codeigniter/application/config/config.php &>/dev/null
+<img src="pict/C3.PNG">
+
+Memberi hak ases
+
+    chown -R www-data:www-data /var/www/html/ 
+    chmod -R 755 /var/www/html/
+
+### 4. Selanjutnya melakukan setting pada nginx
+Copy dari konfigurasi nginx sebelumnya
+
+    sudo cp /etc/nginx/sites-available/iniwebucup.id /etc/nginx/sites-available/iniwebucup2.id
+
+    sudo nano /etc/nginx/sites-available/iniwebucup2.id
+Hapus semua isi yang ada didalam file nya lalu copy yang ada dibawah
+
+    server {  
+    listen 8080;  
+    listen [::]:8080 ipv6only=on;  
+      
+    Log files for Debugging  
+    access_log /var/log/nginx/iniwebucup2-access.log;  
+    error_log /var/log/nginx/iniwebucup2-error.log;  
+      
+    Webroot Directory  
+    root /var/www/html/codeigniter/;  
+    index index.php index.html index.htm;  
+      
+    Your Domain Name  
+    server_name www.iniwebucup2.id;  
+      
+    location / {  
+    try_files $uri $uri/ /index.php?$query_string;  
+    }  
+      
+    PHP-FPM Configuration Nginx  
+    location ~ \.php$ {  
+    try_files $uri =404;  
+    fastcgi_split_path_info ^(.+\.php)(/.+)$;  
+    fastcgi_pass unix:/run/php/php7.2-fpm.sock;  
+    fastcgi_index index.php;  
+    fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;  
+    include fastcgi_params;  
+	    }  
+    }
+
+### 5. Daftarkan Domain yang sudah didaftarkan pada Host
+
+    sudo nano /etc/hosts
+<img src="pict/C4.PNG">
+
+Selanjutnya restart nginx
+
+    systemctl restart nginx
+
+### 6. Lakukan Pengetesan
+
+Masukan domain yang sudah didaftarkan tadi pada browser, jika berhasil akan seperti gambar dibawah
+<img src="pict/C1.PNG">
