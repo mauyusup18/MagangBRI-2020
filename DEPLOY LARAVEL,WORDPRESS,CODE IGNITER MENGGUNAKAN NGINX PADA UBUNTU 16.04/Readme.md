@@ -335,4 +335,4 @@ Selanjutnya restart nginx
 ### 6. Lakukan Pengetesan
 
 Masukan domain yang sudah didaftarkan tadi pada browser, jika berhasil akan seperti gambar dibawah
-<img src="pict/C1.PNG">
+<img src="pict/CC.PNG">
