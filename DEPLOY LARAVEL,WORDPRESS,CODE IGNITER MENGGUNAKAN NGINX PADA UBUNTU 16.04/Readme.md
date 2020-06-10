@@ -169,7 +169,7 @@ Kemudian salin dan tempel konten di bawah ini ke dalam file dan simpan. Ganti ba
         listen [::]:80;
         root /var/www/html/wordpress;
         index  index.php index.html index.htm;
-        server_name  example.com www.example.com;
+        server_name  iniwebucup.id;
     
          client_max_body_size 100M;
     
@@ -306,7 +306,7 @@ Hapus semua isi yang ada didalam file nya lalu copy yang ada dibawah
     index index.php index.html index.htm;  
       
     Your Domain Name  
-    server_name www.iniwebucup2.id;  
+    server_name iniwebucup2.id;  
       
     location / {  
     try_files $uri $uri/ /index.php?$query_string;  
