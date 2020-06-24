@@ -25,7 +25,9 @@ setelah mengetahui ip yang akan dijadikan host, selanjutnya mendaftarkan ip nya,
 
 selanjutnya melakukan pengujian dengan melakukan ping ke host yang tadi di daftarkan
 
+
     ansible all -m ping --ask-pass
+
 
 
 Jika berhasil, tampilan nya akan seperti ini
