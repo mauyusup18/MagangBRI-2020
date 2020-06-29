@@ -31,4 +31,4 @@ selanjutnya melakukan pengujian dengan melakukan ping ke host yang tadi di dafta
 
 
 Jika berhasil, tampilan nya akan seperti ini
-<img src="pict/3.PNG">
+<img src="pict/4.PNG">
