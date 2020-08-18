@@ -55,9 +55,9 @@ selanjutnya adalah menambahkan playbook
 
 Setelah menambahkan playbook, selanjutnya menjalankan playbook yang sudah dibuat tadi 
 
-    ansible-playbook nginx-role.yml
+    ansible-playbook lamp.yml
 
-<img src="pict/6.PNG">
+<img src="pict/00.PNG">
 
 selanjutnya melakukan pengecekan apakah aplikasi nya sudah terinstall atau belum
  
