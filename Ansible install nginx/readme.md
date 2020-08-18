@@ -59,6 +59,6 @@ Setelah menambahkan playbook, selanjutnya menjalankan playbook yang sudah dibuat
 
 <img src="pict/00.PNG">
 
-selanjutnya melakukan pengecekan apakah aplikasi nya sudah terinstall atau belum
+selanjutnya melakukan pengecekan pada server apakah aplikasi sudah terinstall atau belum
  
-<img src="pict/7.PNG">
+<img src="pict/01.PNG">
