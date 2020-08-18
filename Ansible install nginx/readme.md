@@ -40,8 +40,7 @@ selanjutnya adalah menambahkan playbook
       become: true
     
       tasks:
-      - shell: apt-get upgrade -y; apt-get update
-    
+      
       - name: Install nginx
         apt:
           name: nginx
@@ -52,33 +51,6 @@ selanjutnya adalah menambahkan playbook
           name: nginx
           state: started
     
-      - name: Add PHP7 ppa repository
-        apt_repository: repo='ppa:ondrej/php'
-    
-      - name: Install packages
-        apt: pkg={{ item }} state=latest update_cache=yes
-        with_items:
-        - php7.0-cli
-        - php7.0-fpm
-        - php7.0-dev
-        - php7.0-curl
-        - php7.0-gd
-        - php7.0-mbstring
-        - php7.0-mcrypt
-        - php7.0-mysql
-        - php7.0-soap
-        - php7.0-sqlite3
-        - php7.0-xml
-        - php7.0-zip
-        - php7.0-bcmath
-        - php7.0-ssh2
-        - php-rrd
-        - zlibc
-    
-      - name: Install MySQL DB server
-        apt:
-         name: mysql-server
-         state: latest
     ...
 
 Setelah menambahkan playbook, selanjutnya menjalankan playbook yang sudah dibuat tadi 
