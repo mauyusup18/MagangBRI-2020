@@ -11,17 +11,11 @@ Berikut command untuk instalasi ansible
     $ sudo apt-get install ansible
 
 ## 2. Menambahkan host 
- Setelah melakukan instalasi ansible, langkah selanjutnya yaitu mendaftarkan host pada ansible, cek ip terlebih dahulu untuk menambahkan host 
-  
-      ifconfig
-
-<img src="pict/1.PNG">
-
-selanjutnya menambahkan hosts untuk ansible
+ Setelah melakukan instalasi ansible, langkah selanjutnya yaitu mendaftarkan host pada ansible, host yang didaftarkan yaitu host server 
 
     sudo nano/etc/ansible/hosts
 
-<img src="pict/5.PNG">
+<img src="pict/11.PNG">
 
 selanjutnya melakukan pengujian dengan melakukan ping ke host yang tadi di daftarkan
 
